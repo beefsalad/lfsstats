@@ -1,0 +1,107 @@
+.BodyClass{
+
+}
+
+.SidebarDivStyle{
+	width:20%;
+	position:fixed;
+	float:left;
+}
+
+.LinkHeaderClass {
+
+}
+.LinkClass{
+	color: blue; 
+	text-decoration: none; 
+	font-size: 70%;
+}
+.LinkClass:hover{
+	color: blue; 
+	text-decoration: none; 
+	font-size: 110%;
+}
+.SidebarIframeStyle{
+	width:100%;
+	border: 0;
+}
+.MainDivStyle{
+	width:70%;
+  	position: relative;
+  	left: 22%;
+}
+.TableClass{
+	width:100%;
+}
+.TrackClass {
+    font-weight: 900;
+    width: 20%;
+    vertical-align: top;
+}
+.CarClass {
+	font-weight: 600;
+	width:15%;
+}
+.PBName {
+	background-color:#428BBE;
+	width:20%;
+}
+.PBTime {
+	background-color:#B7B7B7;
+	text-align:right;
+	width: 12%;
+}
+.PBSplit1 {
+	background-color:#A0A0A0;
+	text-align:right;
+	width: 15%;
+}
+.PBSplit2 {
+	background-color:#B7B7B7;
+	text-align:right;
+	width: 15%;
+}
+.PBSplit3 {
+	background-color:#A0A0A0;
+	text-align:right;
+	width: 15%;
+}
+.PBLapTime {
+	background-color:#3CC491;
+	text-align:right;
+	width: 15%;
+}
+.RecentPBClass{
+	font-weight: bold;
+}
+.RecentPBClass:hover
+td{
+	 empty-cells: hide;
+	background-color:gray;
+	border-collapse:collapse:
+
+}
+.OldPBClass:hover
+td{
+	 empty-cells: hide;
+	background-color:gray;
+	border-collapse:collapse:
+
+}
+.TrackImageClass{
+	width:150px;
+}
+.TimeTableClass{
+	width:100%;
+	vertical-align:top;
+}
+.TimeRowClass:hover{
+	background-color:#A0A0A0;
+}
+.TrackTDCLass{
+	vertical-align:top;
+}
+
+
+
+

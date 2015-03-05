@@ -1,0 +1,49 @@
+#carstable {
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 2px;
+}
+
+.header {
+	background-color: lightgray;
+}
+
+#track {
+	background-color: white;
+	width: 15%;
+}
+
+
+
+.racer { 
+	background-color: gray;
+	width: 15%;
+}
+
+
+.car {
+	background-color: lightblue;
+	width: 15%;
+}
+
+.split1 {
+	background-color: #33FF99;
+	width: 15%;
+}
+
+.split2 {
+ 	background-color: pink;
+	width: 15%;
+}
+
+.split3 {
+	background-color: #FF9933;
+	width: 15%;
+}
+
+.laptime { 
+	background-color: #FFFF66;
+	width: 15%
+}
+
+
