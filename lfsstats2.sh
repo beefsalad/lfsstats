@@ -6,8 +6,8 @@ if [ -f "userlist.list"]; then
 	echo "[" > all.json
 	while read line; do 
 		curl -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=pb&racer=${line}&s=1"
-		sed -i 's/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g' ${line}.lfs
 		if [ $? -eq 0 ]; then
+			sed -i 's/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g' ${line}.lfs
 			cat ${line}.lfs >> all.json
 			exit 0
 		else 
@@ -16,8 +16,8 @@ if [ -f "userlist.list"]; then
 		sleep 6
 	done < userlist.list
 	curl -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
-	sed -i 's/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g' wr.lfs
 	if [ $? -eq 0 ]; then
+		sed -i 's/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g' wr.lfs
 		cat wr.lfs >> all.json
 		exit 0
 	else
