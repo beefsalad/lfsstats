@@ -9,7 +9,6 @@ if [ -f "userlist.list"]; then
 		if [ $? -eq 0 ]; then
 			sed -i 's/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g' ${line}.lfs
 			cat ${line}.lfs >> all.json
-			exit 0
 		else 
 			echo "Could not append json due to error" >&2
 			exit 1
@@ -19,7 +18,6 @@ if [ -f "userlist.list"]; then
 	if [ $? -eq 0 ]; then
 		sed -i 's/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g' wr.lfs
 		cat wr.lfs >> all.json
-		exit 0
 	else
 		echo "Could not append json due to error" >&2
 		exit 1
@@ -29,3 +27,4 @@ if [ -f "userlist.list"]; then
 else
 	echo "userlist.list not found" >&2
 fi
+exit 0
