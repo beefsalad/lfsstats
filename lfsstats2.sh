@@ -10,7 +10,7 @@ if [ -f "userlist.list"]; then
 			sed -i 's/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g' ${line}.lfs
 			cat ${line}.lfs >> all.json
 		else 
-			echo "Could not append json due to error" >&2
+			echo "Curl failed with error:" >&2
 			exit 1
 		sleep 6
 	done < userlist.list
@@ -19,7 +19,7 @@ if [ -f "userlist.list"]; then
 		sed -i 's/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g' wr.lfs
 		cat wr.lfs >> all.json
 	else
-		echo "Could not append json due to error" >&2
+		echo "Curl failed with error:" >&2
 		exit 1
 	fi
 	echo "]" >> all.json
