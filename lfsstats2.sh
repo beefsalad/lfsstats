@@ -26,7 +26,7 @@ if [ -f "userlist.list"]; then
 	fi
 	echo "]" >> all.json
 	cat all.json > lfs.json
-	rm all.json
+	rm all.json *.lfs
 else
 	echo "userlist.list not found" >&2
 fi
