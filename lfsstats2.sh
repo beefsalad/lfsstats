@@ -13,6 +13,7 @@ if [ -f "userlist.list"]; then
 			echo "Curl failed with error:" >&2
 			rm all.json
 			exit 1
+		fi
 		sleep 6
 	done < userlist.list
 	curl -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
