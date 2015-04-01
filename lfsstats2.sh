@@ -11,6 +11,7 @@ if [ -f "userlist.list"]; then
 			cat ${line}.lfs >> all.json
 		else 
 			echo "Curl failed with error:" >&2
+			rm all.json
 			exit 1
 		sleep 6
 	done < userlist.list
@@ -20,10 +21,12 @@ if [ -f "userlist.list"]; then
 		cat wr.lfs >> all.json
 	else
 		echo "Curl failed with error:" >&2
+		rm all.json
 		exit 1
 	fi
 	echo "]" >> all.json
 	cat all.json > lfs.json
+	rm all.json
 else
 	echo "userlist.list not found" >&2
 fi
