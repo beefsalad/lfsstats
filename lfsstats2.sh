@@ -2,26 +2,23 @@
 
 cd /var/www/motoracing/lfsstats/ 
 
-if [ -f "userlist.list"]; then
+if [ -f userlist.list ]; then
 	echo "[" > all.json
 	while read line; do 
 		curl -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=pb&racer=${line}&s=1"
-<<<<<<< HEAD
-		if [ $? -eq 0 ]; then	
-=======
 		if [ $? -eq 0 ]; then
->>>>>>> d2e196c891353732f6443337ee5b93b1843993ae
-			sed -i 's/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g' ${line}.lfs
+			sed -i "s/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g" ${line}.lfs
 			cat ${line}.lfs >> all.json
+			sleep 6
 		else 
 			echo "Curl failed with error:" >&2
 			rm all.json
 			exit 1
-		sleep 6
+		fi
 	done < userlist.list
-	 wish:curl -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
+	curl -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
 	if [ $? -eq 0 ]; then
-		sed -i 's/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g' wr.lfs
+		sed -i "s/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g" wr.lfs
 		cat wr.lfs >> all.json
 	else
 		echo "Curl failed with error:" >&2
