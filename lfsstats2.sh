@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /var/www/motoracing/lfsstats/ 
+cd /var/www/motoracing/lfsstats/git 
 
 if [ -f userlist.list ]; then
 	echo "[" > all.json
@@ -30,5 +30,6 @@ if [ -f userlist.list ]; then
 	rm all.json *.lfs
 else
 	echo "userlist.list not found" >&2
+	exit 1
 fi
 exit 0
