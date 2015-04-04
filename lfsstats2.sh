@@ -1,14 +1,14 @@
 #!/bin/bash
 
-tmpdir=$(mkdir -d)
+tmpdir=$(mktemp -d)
 cp $1/userlist.list $tmpdir
 cd $tmpdir
-trap 'rm $tmpdir; exit' 0
+trap 'rm -rf $tmpdir; exit' 0
 
 if [ -f userlist.list ]; then
 	echo "[" > all.json
 	while read line; do 
-		curl -f -s -S -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=${line}&s=1"
+		curl -f -s -S -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=pb&racer=${line}&s=1"
 		if [ $? -eq 0 ]; then
 			sed -i "s/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g" ${line}.lfs
 			cat ${line}.lfs >> all.json
@@ -31,7 +31,7 @@ if [ -f userlist.list ]; then
 	echo "]" >> all.json
 	cat all.json > lfs.json
 	rm all.json *.lfs
-	cp -ar $tmpdir $1
+	cp -ar $tmpdir/* $1
 else
 	echo "userlist.list not found" >&2
 	exit 1
