@@ -5,7 +5,7 @@ cd /var/www/motoracing/lfsstats/git
 if [ -f userlist.list ]; then
 	echo "[" > all.json
 	while read line; do 
-		curl -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=pb&racer=${line}&s=1"
+		curl -f -s -S -o ${line}.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=${line}&s=1"
 		if [ $? -eq 0 ]; then
 			sed -i "s/{/{\"racer\":\"${line}\",/g;s/\[//g;s/\]/,/g" ${line}.lfs
 			cat ${line}.lfs >> all.json
@@ -16,7 +16,7 @@ if [ -f userlist.list ]; then
 			exit 1
 		fi
 	done < userlist.list
-	curl -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
+	curl -f -s -S -o wr.lfs "http://www.lfsworld.net/pubstat/get_stat2.php?version=1.5&idk=7p33EdzYnwLn7RgyiSNe2sw3UxjZyIrf&action=wr&s=1" 
 	if [ $? -eq 0 ]; then
 		sed -i "s/{/{\"racer\":\"wr\",/g;s/\[//g;s/\]//g" wr.lfs
 		cat wr.lfs >> all.json
