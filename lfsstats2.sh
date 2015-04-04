@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd /var/www/motoracing/lfsstats/git 
+tmpdir=$(mkdir -d)
+cp $1/userlist.list $tmpdir
+cd $tmpdir
+trap 'rm $tmpdir; exit' 0
 
 if [ -f userlist.list ]; then
 	echo "[" > all.json
@@ -28,6 +31,7 @@ if [ -f userlist.list ]; then
 	echo "]" >> all.json
 	cat all.json > lfs.json
 	rm all.json *.lfs
+	cp -ar $tmpdir $1
 else
 	echo "userlist.list not found" >&2
 	exit 1
